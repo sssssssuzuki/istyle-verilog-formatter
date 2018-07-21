@@ -69,6 +69,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\prj\istyle-verilog-formatter\src\astyle;D:\prj\istyle-verilog-formatter\src;$(IncludePath)</IncludePath>
+    <TargetName>iStyle</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
