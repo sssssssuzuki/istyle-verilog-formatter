@@ -57,7 +57,7 @@ using namespace astyle;
 ostream *_err = &cerr;
 string _suffix = ".orig";
 
-const string _version = "1.21";
+const string _version = "1.21.1";
 bool shouldBackupFile = true;
 
 // --------------------------------------------------------------------------
@@ -364,7 +364,8 @@ void printHelpTitle()
 
     SetColor(2,0);
     cout <<  " (Fast and Free Automatic Formatter for Verilog Source Code)\n";
-    cout << "               (Created by haimag, Report Bugs: haimag@gmail.com)\n";
+	cout << "               (Created by haimag, Report Bugs: haimag@gmail.com)\n";
+	cout << "               (Fixed by feilong, Report Bugs: https://github.com/feilongfl/istyle-verilog-formatter/issues )\n";
     cout << "               (Thanks to Tal Davidson & Astyle)\n";
     cout << endl;
     SetColor(7,0);
@@ -380,7 +381,7 @@ void printHelpSimple(int isGetchar=0)
     SetColor(7,0);
     cout << "For help on options, type 'iStyle -h'" ;
 
-    if(isGetchar ==1 )
+    if( 0 )
     {
         cout << ", Press ENTER to exit." << endl;
         getchar();
