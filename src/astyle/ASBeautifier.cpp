@@ -44,10 +44,6 @@
 #define DELETE_CONTAINER(container)          {if ( (container) != NULL ) delete (container) ; }
 
 #ifdef USES_NAMESPACE
-using namespace std;
-#endif
-
-#ifdef USES_NAMESPACE
 namespace astyle
 {
 #endif

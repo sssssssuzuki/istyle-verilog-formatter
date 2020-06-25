@@ -27,62 +27,51 @@
 //
 // --------------------------------------------------------------------------
 
-#include "astyle.h"
-
 #include <istream>
-//~ #include <strstream>
 
+#include "astyle.h"
+//~ #include <strstream>
 
 #include <sstream>
 
 #ifdef USES_NAMESPACE
-using namespace std;
 
-namespace astyle
-{
+using std::istream;
+
+namespace astyle {
 #endif
 
 // --------------------------------------------------------------------------
 // ASStreamIterator
 // --------------------------------------------------------------------------
 
-ASStreamIterator::ASStreamIterator(istream *in)
-{
-    inStream = in;
-    linecount = 0;
+ASStreamIterator::ASStreamIterator(istream *in) {
+  inStream = in;
+  linecount = 0;
 }
 
-ASStreamIterator::~ASStreamIterator()
-{
-    delete inStream;
+ASStreamIterator::~ASStreamIterator() { delete inStream; }
+
+bool ASStreamIterator::hasMoreLines() const {
+  if (*inStream)
+    return true;
+  else
+    return false;
 }
 
-
-bool ASStreamIterator::hasMoreLines() const
-{
-    if (*inStream)
-        return true;
-    else
-        return false;
-}
-
-
-string ASStreamIterator::nextLine()
-{
-    string buffer;
-    getline(*inStream, buffer);
-    if (inStream->fail() && !inStream->eof())
-    {
-        string str;
-        str = "Could not read line " ;
-        error(str.c_str(), "(too long?)");
-    }
-    if (buffer[buffer.size() - 1] == '\r')
-    {
-        buffer.erase(buffer.size() - 1);
-    }
-    ++linecount;
-    return buffer;
+string ASStreamIterator::nextLine() {
+  string buffer;
+  getline(*inStream, buffer);
+  if (inStream->fail() && !inStream->eof()) {
+    string str;
+    str = "Could not read line ";
+    error(str.c_str(), "(too long?)");
+  }
+  if (buffer[buffer.size() - 1] == '\r') {
+    buffer.erase(buffer.size() - 1);
+  }
+  ++linecount;
+  return buffer;
 }
 
 #ifdef USES_NAMESPACE
