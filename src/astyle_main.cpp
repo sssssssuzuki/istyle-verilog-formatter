@@ -55,7 +55,7 @@ using astyle::ASFormatter, astyle::ASStreamIterator;
 ostream *_err = &cerr;
 string _suffix = ".orig";
 
-const string _version = "1.21.1";
+const string _version = "1.21.2";
 bool shouldBackupFile = true;
 
 // --------------------------------------------------------------------------
